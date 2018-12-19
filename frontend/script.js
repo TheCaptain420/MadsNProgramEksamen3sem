@@ -1,3 +1,6 @@
+document.getElementById("velkommentekst").innerHTML = "Hello world, klokken var " + new Date().toLocaleTimeString() + " ved sidste opdatering;"
+
+
 //køre func, på get request
 hentstandartTable();
 
