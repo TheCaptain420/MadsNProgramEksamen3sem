@@ -53,6 +53,10 @@ function hentstandartTable() {
 }
 
 
+//til søgning af navn
+function hentKontiEfterNavn(){
+    console.log("tsm")
+}
 
 
 

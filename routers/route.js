@@ -9,5 +9,9 @@ module.exports = function (app) {
         .get(controller.hent_data)
 
     app.route('/api/opretKonto').post(controller.opret_konto)
+    
+    app.route('/api/opretTrans').post(controller.lavTrans);
 
+
+    app.route('/api/henttrans').get(controller.hent_transfers);
 };

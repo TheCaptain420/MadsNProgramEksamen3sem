@@ -34,6 +34,11 @@
             margin-right: auto;
             width: 50%;
         }
+
+        #overskriftTilkonti{
+            color: red
+
+        }
     </style>
 
 </head>
@@ -41,18 +46,33 @@
 <body>
     <img class="center" id="logoimg" src="https://icoshrimp.com/wp-content/uploads/2018/06/cryptobank.png" height=100px width=350px>
     <p class="center" id="velkommentekst"></p>
-
+    
+    <!--henter jquery online-->
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    
+    <!--streg igennem ark-->
+    <hr>
+    
+    <h3 id="overskriftTilkonti" >ALLE KONTI</h3>
+
 
     <table style="width:100%" class="table table-dark">
         <ul id="liste"></ul>
     </table>
+
+
+    <hr>
 
     <script>
         //henter alle tingene til table
         //hentstandartTable();
 
     </script>
+
+    <input type="navninput" id="myText" value="">
+    <input type="navninput" id="myText" value="">
+
+    <button onclick="hentKontiEfterNavn()"> klik her for at søge </button>
 
     <!--Bruges til at hente mit script, så det ligger i seperat fil-->
     <script src="http://localhost:8080/script"></script>
