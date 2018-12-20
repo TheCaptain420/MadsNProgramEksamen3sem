@@ -10,10 +10,10 @@ function hentstandartTable() {
     var startappend = "<tr><th>Ejer Navn</th><th>Cpr nummer</th><th id='brugerid' >personID</th><th>Type Coin</th><th>Kontonummer</th><th>saldo</th></tr> "
     //jquery til at appende
     $('#liste').append($(startappend));
-    
+
     //denne brugers til at lave req med
     var xmlhttp = new XMLHttpRequest();
-    
+
     //Ved hver readystatechange den modtager, tester den om den er 4(har fået response) og at serveren siger ok(200)
     //Se i bunden af doc, for hvilke state er hvad. 
     xmlhttp.onreadystatechange = function () {
@@ -32,12 +32,12 @@ function hentstandartTable() {
                 var cpr = '<td>' + obj[index].cprnr + ' </td>'
                 var brugerID = '<td class="klikker" id="' + obj[index].personID + '" onclick="sebruger(this.id)" >' + obj[index].personID + ' </td>'
                 var typecoin = '<td>' + obj[index].typecoin + ' </td>'
-                var kontonummer = '<td>' + obj[index].kontonr + ' </td>'
+                var kontonummer = '<td id="' + obj[index].kontonr + '" onclick="deletekonto(this.id)">' + obj[index].kontonr + ' </td>'
                 var saldo = '<td class="moneybobs">' + obj[index].saldo + ' </td>'
 
                 var slut = '</tr>'
 
-                var finallinje = start +EjerNavn + cpr+ brugerID + typecoin + kontonummer + saldo + slut;
+                var finallinje = start + EjerNavn + cpr + brugerID + typecoin + kontonummer + saldo + slut;
                 $('#liste').append($(finallinje));
             }
 
@@ -54,11 +54,22 @@ function hentstandartTable() {
 
 
 //til søgning af navn
-function hentKontiEfterNavn(){
+function hentKontiEfterNavn() {
     console.log("tsm")
 }
 
 
+//til delete af 
+function deletekonto(id) {
+    var xmlhttp = new XMLHttpRequest();
+    var url = "http://localhost:8080/api/hentdata?kontoid="+id+""
+
+    //åbner den
+    xmlhttp.open("DELETE", url, true);
+    //sender request
+    xmlhttp.send();
+
+}
 
 
 

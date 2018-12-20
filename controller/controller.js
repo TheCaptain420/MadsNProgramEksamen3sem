@@ -95,7 +95,8 @@ exports.lavTrans = function(req,res){
   //Get alle transfers
   //Bliver ikke implementeret i hjemmeside, da front end vil tage for lang tid.
 //men det virker i POSTMAN
-  exports.hent_transfers = function(req,res){
+//delete virker ikke
+  exports.deletekonto = function(req,res){
     var con = mysql.createConnection({
         host: "localhost",
         user: "root",
@@ -110,7 +111,7 @@ exports.lavTrans = function(req,res){
               });
             
               //req.body.whatever
-              con.query("Select * from transfertable;", function (err, result) {
+              con.query("delete from kontotable where kontonr = "+req.body.kontoid+"; ", function (err, result) {
                 if (err) throw err;
                 console.log("transfer hentet *");
               res.send(result);
@@ -119,3 +120,4 @@ exports.lavTrans = function(req,res){
     
     
     }
+

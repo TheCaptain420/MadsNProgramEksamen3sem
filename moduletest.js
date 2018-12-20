@@ -10,10 +10,3 @@ var bitcoin = require('./own_modules/bitcointoEuro_module/bitcointoeur')
 
 //gør brug
 bitcoin.omregner();
-
-//ekstra opgave til 9
-//euro til dkk;
-var omregnereutildkk = require('./own_modules/euroTodkk_module/omregneretd');
-
-//gør brug
-omregnereutildkk.omregner(bitcoin.omregner);

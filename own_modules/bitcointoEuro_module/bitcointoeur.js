@@ -15,7 +15,6 @@ function bitcointoeur(bitcoin){
     var xhr = require('xmlhttprequest').XMLHttpRequest
     var xmlhttp = new xhr;
     
-    var test = 0; 
     //Ved hver readystatechange den modtager, tester den om den er 4(har fået response) og at serveren siger ok(200)
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -23,8 +22,6 @@ function bitcointoeur(bitcoin){
           var myObj = JSON.parse(this.responseText);
           //printer temperaturen
           console.log("nuværende bitcoin pris i euro: " +myObj.ticker.price);
-          test = myObj.ticker.price;
-        return test;
         }
     };
 

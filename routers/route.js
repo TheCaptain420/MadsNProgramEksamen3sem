@@ -12,6 +12,8 @@ module.exports = function (app) {
     
     app.route('/api/opretTrans').post(controller.lavTrans);
 
-
+/*
     app.route('/api/henttrans').get(controller.hent_transfers);
+*/
+    app.route('/api/deletekonto').delete(controller.deletekonto);
 };
