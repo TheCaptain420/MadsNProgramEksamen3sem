@@ -28,7 +28,7 @@ app.use(cors())
 
 //get request
 app.get('/',function(req,res){
-    res.sendFile(__dirname + '/frontend/index.html');
+    res.sendFile(__dirname + '/frontend/konti.html');
 })
 app.get('/script',function(req,res){
     res.sendFile(__dirname + '/frontend/script.js');

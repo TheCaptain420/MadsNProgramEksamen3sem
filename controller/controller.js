@@ -1,7 +1,8 @@
 var mysql = require('mysql');
 
 //get request
-//metode til at hente data fra table 
+//metode til at hente data fra table kontotable
+//OPGAVE 6
 exports.hent_data = function (req, res) {
     //opretter connection til db
     var con = mysql.createConnection({
@@ -15,13 +16,13 @@ exports.hent_data = function (req, res) {
         if (err) throw err;
         console.log("Connected!");
         //Bruge den rigtige DB
-        con.query("use programEksamen;", function (err, result) {
+        con.query("use Cryptobank;", function (err, result) {
             if (err) throw err;
             console.log("connected to schema");
         });
 
         //Her fotæller jeg at den skal vise alle.
-        con.query("select * from kontotable ORDER BY brugerID DESC;", function (err, result) {
+        con.query("select personID,typecoin,kontonr,saldo,navn,cprnr from kontotable INNER JOIN brugertable ON kontotable.personID = brugertable.uniktID;", function (err, result) {
             if (err) throw err;
             console.log("selected *");
             //her sender den en json fil, til ham der prøver at hente den . 
@@ -34,9 +35,9 @@ exports.hent_data = function (req, res) {
 
 
 //POST request
-//lav en post request til at oprette nye brugere
-
-exports.opret_kunde = function(req,res){
+//lav en post request til at oprette nye konti
+//OPGAVE 7
+exports.opret_konto = function(req,res){
     var con = mysql.createConnection({
       host: "localhost",
       user: "root",
@@ -45,16 +46,16 @@ exports.opret_kunde = function(req,res){
     con.connect(function(err) {
           if (err) throw err;
           console.log("Connected!");
-          con.query("use programEksamen;", function (err, result) {
+          con.query("use Cryptobank;", function (err, result) {
               if (err) throw err;
               console.log("connected to schema");
             });
           
             //req.body.whatever
-            con.query("insert into BecBankbrugere(brugertype,navn,brugerID,brugernavn,passwordet) values ('"+req.body.brugertype+"','"+req.body.navn+"',"+req.body.brugerID+",'"+req.body.brugernavn+"','"+req.body.passwordet+"'); ", function (err, result) {
+            con.query("insert into kontotable values ("+req.body.personID+",'"+req.body.typecoin+"',"+req.body.kontonr+","+req.body.saldo+"); ", function (err, result) {
               if (err) throw err;
               console.log("kundeopretttet *");
-            res.send("Det virker, akak den kom igennem");
+            res.send("konto oprettet");
             });
           });
   

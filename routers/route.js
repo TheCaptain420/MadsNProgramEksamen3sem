@@ -5,11 +5,9 @@ module.exports = function (app) {
     var controller = require('../controller/controller');
     
     // Routes
-    app.route('/hentdata')
+    app.route('/api/hentdata')
         .get(controller.hent_data)
-        //.post(controller.opret_kunde);
 
-
-    //app.route('/hentdata').post(controller.hent_data_for_en);
+    app.route('/api/opretKonto').post(controller.opret_konto)
 
 };

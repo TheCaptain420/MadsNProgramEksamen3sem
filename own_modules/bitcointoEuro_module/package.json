@@ -1,0 +1,20 @@
+
+{
+    "name": "bitcoinapi",
+    "version": "1.0.0",
+    "description": "Et modul, som der viser værdien af bitcoin ",
+    "main": "bitcointoeur.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/TheCaptain420/MadsNProgramEksamen3sem"
+    },
+    "author": "Mads Nielsen, en datamatikerstuderende i Næstved",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/TheCaptain420/MadsNProgramEksamen3sem"
+    },
+    "homepage": "https://github.com/TheCaptain420/MadsNProgramEksamen3sem"
+  }
